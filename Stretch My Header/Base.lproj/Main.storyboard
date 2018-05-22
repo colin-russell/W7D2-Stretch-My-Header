@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="84" id="2DS-5u-iLo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="84" id="2DS-5u-iLo" customClass="NewsItemCell" customModule="Stretch_My_Header" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2DS-5u-iLo" id="xEz-BG-ro4">
@@ -49,9 +49,13 @@
                                         <constraint firstAttribute="trailing" secondItem="nKh-qn-aF8" secondAttribute="trailing" constant="16" id="agW-WO-aiG"/>
                                         <constraint firstAttribute="bottom" secondItem="nKh-qn-aF8" secondAttribute="bottom" constant="11.5" id="eUX-H8-ZjY"/>
                                         <constraint firstItem="nKh-qn-aF8" firstAttribute="top" secondItem="4Z3-se-heC" secondAttribute="bottom" constant="0.5" id="s5u-jc-vVS"/>
-                                        <constraint firstItem="4Z3-se-heC" firstAttribute="leading" secondItem="xEz-BG-ro4" secondAttribute="leading" constant="16" id="tOf-UR-WUC"/>
+                                        <constraint firstItem="4Z3-se-heC" firstAttribute="leading" secondItem="xEz-BG-ro4" secondAttribute="leading" constant="16" id="yyJ-SK-bUT"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="4Z3-se-heC" id="JZh-Rf-FNV"/>
+                                    <outlet property="summaryLabel" destination="nKh-qn-aF8" id="hZV-8w-8yo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
