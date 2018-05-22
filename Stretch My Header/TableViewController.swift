@@ -12,7 +12,11 @@ import Foundation
 class TableViewController: UITableViewController {
     
     private let kTableHeaderHeight: CGFloat = 300.0
+    private let kTableHeaderCutAway: CGFloat = 80.0
+    
+    var headerMaskLayer: CAShapeLayer!
     var headerView: UIView!
+    
     let items = [
         NewsItem(category: .World, summary: "Climate change protests, divestments meet fossil fuels realities"),
         NewsItem(category: .Europe, summary: "Scotland's 'Yes' leader says independence vote is 'once in a lifetime'"),
@@ -34,6 +38,11 @@ class TableViewController: UITableViewController {
         
         tableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+        
+        headerMaskLayer = CAShapeLayer()
+        headerMaskLayer.fillColor = UIColor.black.cgColor
+        
+        headerView.layer.mask = headerMaskLayer
         updateHeaderView()
     }
     
@@ -45,6 +54,13 @@ class TableViewController: UITableViewController {
         }
         
         headerView.frame = headerRect
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: headerRect.width, y: 0))
+        path.addLine(to: CGPoint(x: headerRect.width, y: headerRect.height))
+        path.addLine(to: CGPoint(x: 0, y: headerRect.height-kTableHeaderCutAway))
+        headerMaskLayer?.path = path.cgPath
     }
     
     override var prefersStatusBarHidden: Bool {
